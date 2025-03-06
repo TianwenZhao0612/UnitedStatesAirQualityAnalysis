@@ -1,4 +1,4 @@
-# United States Air Quality Analysis 🌍
+# United States Air Quality Analysis 
 
 ## Description
 This project provides **interactive visualizations** for analyzing **air quality trends across the United States**. The analysis focuses on key pollutants from 2000 to 2016, using officially released data from the **United States Environmental Protection Agency (EPA)**.  
