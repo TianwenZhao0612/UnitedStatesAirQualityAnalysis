@@ -2,19 +2,15 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Page configuration
 st.set_page_config(page_title="US Air Quality Dashboard", page_icon="🇺🇸", layout="wide")
 
-# Title and intro
 st.markdown("# 🇺🇸 United States Air Quality Analysis")
 st.write("This interactive dashboard analyzes air pollution across the United States, focusing on **NO₂ AQI**.")
 st.markdown("---")
 
-# Sidebar - Data Upload
 st.sidebar.markdown("## 🎛️ Data Selection & Filters")
 uploaded_file = st.sidebar.file_uploader("Upload Air Quality Data (CSV)", type=["csv"])
 
-# Load data - 优先上传文件，否则用本地
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
     st.sidebar.success("✅ Data uploaded successfully!")
@@ -22,10 +18,9 @@ else:
     df = pd.read_csv('pollution_us_2000_2016.csv')
     st.sidebar.info("Using local file: pollution_us_2000_2016.csv")
 
-# Remove non-US data
+
 df = df[df['State'] != 'Country Of Mexico']
 
-# State name to abbreviation mapping
 state_name_to_abbr = {
     'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR',
     'California': 'CA', 'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE',
@@ -43,10 +38,9 @@ state_name_to_abbr = {
 }
 df['State Abbr'] = df['State'].map(state_name_to_abbr)
 
-# Average AQI per state
+
 state_avg_aqi = df.groupby('State Abbr')['NO2 AQI'].mean().reset_index()
 
-# Find most and least polluted
 most_polluted = state_avg_aqi.loc[state_avg_aqi['NO2 AQI'].idxmax()]
 least_polluted = state_avg_aqi.loc[state_avg_aqi['NO2 AQI'].idxmin()]
 
@@ -56,7 +50,7 @@ highest_aqi = most_polluted['NO2 AQI']
 least_polluted_state = least_polluted['State Abbr']
 lowest_aqi = least_polluted['NO2 AQI']
 
-# Map + Analysis Summary
+
 st.markdown("### 🗺️ Air Quality Map")
 
 col1, col2 = st.columns([3, 2])
@@ -95,7 +89,6 @@ with col2:
 
 st.markdown("---")
 
-# Time Series Trend Analysis
 st.markdown("### 📈 Air Pollution Trends Over Time")
 
 st.markdown("""
@@ -132,7 +125,7 @@ st.markdown("""
 
 st.markdown("---")
 
-# Bar Chart - State Ranking
+
 
 st.markdown("### 📊 State-wise Average NO₂ AQI")
 
