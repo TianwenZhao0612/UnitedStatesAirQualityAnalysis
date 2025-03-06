@@ -24,9 +24,12 @@ This project provides **interactive visualizations** for analyzing **air quality
 
 ## Installation
 To install necessary dependencies, run the following commands:
-pip install pandas>=1.0
-pip install streamlit>=1.0
-pip install plotly>=4.0
+pip install pandas==2.2.0
+pip install numpy==1.26.4
+pip install streamlit==1.32.0
+pip install plotly==5.18.0
+pip install geopandas==0.14.3
+pip install matplotlib==3.8.2
 
 
 ---
