@@ -37,7 +37,7 @@ pip install matplotlib==3.8.2
 ## Usage
 ### Option 1: Online Deployment (Recommended)  
 Visit the deployed Streamlit app at:  
-[https://your-username-your-repo-name.streamlit.app](https://www.streamlit.io)  
+[[https://your-username-your-repo-name.streamlit.app](https://www.streamlit.io) ](https://tianwenzhao0612-unitedstatesairqualityanaly-finalproject-feidhm.streamlit.app/) 
 (Note: Replace the link with your actual deployment link)
 
 ### Option 2: Local Run  
